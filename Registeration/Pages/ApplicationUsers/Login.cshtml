@@ -1,0 +1,36 @@
+﻿@page
+@model Registeration.Pages.ApplicationUsers.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<h4>ApplicationUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmailAddressString" class="control-label"></label>
+                <input asp-for="EmailAddressString" class="form-control" />
+                <span asp-validation-for="EmailAddressString" class="text-danger"></span>
+                <p class="text-danger">@Model.EmailAddressErrorMessage</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordString" class="control-label"></label>
+                <input asp-for="PasswordString" class="form-control" />
+                <span asp-validation-for="PasswordString" class="text-danger"></span>
+                <p class="text-danger">@Model.PasswordErrorMessage</p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
